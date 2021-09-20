@@ -32,11 +32,12 @@ const KuromojiBox: FC<KuromojiBoxProps> = ({ searchString, questionList }) => {
         const ansTokens = tokenizer
           .tokenize(e.question)
           .filter((e) => e.pos === '名詞' || e.pos === '動詞')
-        return {
+        const contents = {
           word: ansTokens.map((e) => e.basic_form),
           ans: e.answer,
           question: e.question,
         }
+        return contents
       })
       setPatterns(parsedPatterns)
     }
@@ -57,12 +58,10 @@ const KuromojiBox: FC<KuromojiBoxProps> = ({ searchString, questionList }) => {
       const size = e.word.length + simList.length - set.size
       if (size > 0) {
         list.push([size, e])
-        return list
       }
       return list
     }, [])
-    ansList.sort().reverse()
-    return ansList
+    return ansList.sort().reverse()
   }
 
   return (

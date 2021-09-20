@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "format": "prettier --ignore-path .gitignore --write ./**/*.{js,jsx,ts,tsx,json,css,scss} "
+    "format": "prettier --ignore-path .gitignore --write ./**/*.{js,jsx,ts,tsx,json,css,scss} ",
+    "deploy": "cp -a node_modules/kuromoji/dict public/ && next build && next export"
   },
   "dependencies": {
     "@material-ui/core": "^4.12.3",
