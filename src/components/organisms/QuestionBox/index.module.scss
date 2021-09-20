@@ -1,0 +1,14 @@
+.contents_wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 1em;
+}
+
+.qa_wrapper {
+  display: flex;
+  margin: 1em;
+  flex-grow: 1;
+  width: 40%;
+  min-height: 30px;
+  vertical-align: middle;
+}

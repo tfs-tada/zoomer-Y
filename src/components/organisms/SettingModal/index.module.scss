@@ -1,0 +1,41 @@
+.contents_wrapper {
+  width: 80%;
+  position: relative;
+  margin: auto;
+  display: flex;
+  flex-flow: column;
+}
+
+.title_contents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 2em auto;
+}
+
+.title_string {
+  margin: auto;
+  font-size: large;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.list_wrapper {
+  display: flex;
+  flex-flow: column;
+  max-width: 450px;
+  width: 100%;
+  margin: auto;
+}
+
+.list_contents {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+}
+
+.list_string {
+  margin: auto 0;
+  font-weight: bold;
+}
