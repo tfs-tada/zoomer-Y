@@ -1,0 +1,17 @@
+.header_wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon_wrapper {
+  display: flex;
+  margin: auto;
+}
+
+.icon_contents {
+  margin: 1em;
+}
+
+.title_wrapper {
+  flex-grow: 1;
+}
