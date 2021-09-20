@@ -1,11 +1,18 @@
 import { Button } from '@material-ui/core'
 import { FC, useEffect, useState } from 'react'
 import MicIcon from '@material-ui/icons/Mic'
+import StopIcon from '@material-ui/icons/Stop'
 interface SpeechBoxProps {
   setSearchString: (str: string) => void
+  doingRecognition: boolean
+  setDoingRecognition: (bool: boolean) => void
 }
-const SpeechBox: FC<SpeechBoxProps> = ({ setSearchString }) => {
-  const [recognition, setRecognition] = useState()
+const SpeechBox: FC<SpeechBoxProps> = ({
+  setSearchString,
+  doingRecognition,
+  setDoingRecognition,
+}) => {
+  const [recognition, setRecognition] = useState<any>()
 
   // speechAPI 初期化
   useEffect(() => {
@@ -18,12 +25,14 @@ const SpeechBox: FC<SpeechBoxProps> = ({ setSearchString }) => {
   }, [])
 
   if (recognition)
-    recognition.onresult = (event) => {
+    recognition.onresult = (event: any) => {
       setSearchString(event.results[event.results.length - 1][0].transcript)
     }
 
   const changeRecognitionMode = () => {
-    recognition?.start()
+    if (!doingRecognition) recognition?.start()
+    else recognition?.stop()
+    setDoingRecognition(!doingRecognition)
   }
 
   return (
@@ -32,7 +41,7 @@ const SpeechBox: FC<SpeechBoxProps> = ({ setSearchString }) => {
       color={'primary'}
       onClick={() => changeRecognitionMode()}
     >
-      <MicIcon />
+      {doingRecognition ? <StopIcon /> : <MicIcon />}
     </Button>
   )
 }
