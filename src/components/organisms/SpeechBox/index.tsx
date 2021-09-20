@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { Button } from '@material-ui/core'
 import { FC, useEffect, useState } from 'react'
 import MicIcon from '@material-ui/icons/Mic'
