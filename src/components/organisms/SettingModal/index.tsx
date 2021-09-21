@@ -40,7 +40,7 @@ const SettingModal: FC<SettingModalProps> = ({ closeModal }) => {
           x
         </Button>
       </div>
-      <div>
+      <div className={styles.list_wrapper}>
         {questionList.map((e) => (
           <div key={e.id}>
             <QuestionBox message={e} reloadStorage={() => reloadStorage()} />
