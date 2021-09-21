@@ -6,8 +6,9 @@ import styles from './index.module.scss'
 import { Button } from '@material-ui/core'
 interface HeaderProps {
   openSettingModal: () => void
+  openTutorialModal: () => void
 }
-const Header: FC<HeaderProps> = ({ openSettingModal }) => {
+const Header: FC<HeaderProps> = ({ openSettingModal, openTutorialModal }) => {
   return (
     <div className={styles.header_wrapper}>
       <div className={styles.title_wrapper}>
@@ -16,7 +17,7 @@ const Header: FC<HeaderProps> = ({ openSettingModal }) => {
       </div>
       <div className={styles.icon_wrapper}>
         <div className={styles.icon_contents}>
-          <Button>
+          <Button onClick={() => openTutorialModal()}>
             <ContactSupportIcon />
           </Button>
         </div>

@@ -2,7 +2,7 @@
   width: 80%;
   max-height: 80vh;
   position: relative;
-  margin: auto;
+  margin: 1em auto;
   display: flex;
   flex-flow: column;
 }
@@ -23,17 +23,24 @@
 
 .list_wrapper {
   display: flex;
-  overflow-y: scroll;
   flex-flow: column;
+  overflow-x: hidden;
+  overflow-y: scroll;
   width: 100%;
   margin: auto;
+  line-height: 20px;
 }
 
 .list_contents {
-  width: 100%;
   display: flex;
+  flex-flow: column;
   justify-content: space-between;
   margin: 10px;
+}
+
+.list_title {
+  font-size: medium;
+  font-weight: bold;
 }
 
 .list_string {

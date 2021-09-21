@@ -8,8 +8,10 @@ import SettingModal from '../../organisms/SettingModal'
 import ModalWindow from '../../atoms/ModalWindow'
 import { getStorage } from '../../../utils/localStorage/QuestionStore'
 import { MessageSet } from '../../../interface/MessageSet'
+import TutorialModal from '../../organisms/TutorialModal'
 
 const TopPageTemplate: FC = () => {
+  const [tutorialModalFlag, setTutorialModalFlag] = useState(false)
   const [settingModalFlag, setSettingModalFlag] = useState(false)
   const [doingRecognition, setDoingRecognition] = useState(false)
   const [searchString, setSearchString] =
@@ -23,7 +25,10 @@ const TopPageTemplate: FC = () => {
   return (
     <div className={styles.page_wrapper}>
       <div className={styles.header_wrapper}>
-        <Header openSettingModal={() => setSettingModalFlag(true)} />
+        <Header
+          openSettingModal={() => setSettingModalFlag(true)}
+          openTutorialModal={() => setTutorialModalFlag(true)}
+        />
       </div>
       <div className={styles.contents_wrapper}>
         <div className={styles.searchbox_wrapper}>
@@ -41,6 +46,15 @@ const TopPageTemplate: FC = () => {
         <SettingModal
           closeModal={() => {
             setSettingModalFlag(false)
+            reloadStorage()
+          }}
+        />
+      </ModalWindow>
+
+      <ModalWindow openFlag={tutorialModalFlag}>
+        <TutorialModal
+          closeModal={() => {
+            setTutorialModalFlag(false)
             reloadStorage()
           }}
         />
